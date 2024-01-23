@@ -262,12 +262,12 @@ fi
 chsh -s /bin/bash
 
 # Go to town, install all these taps, brews, and casks:
-brew bundle install --no-upgrade --file $(dirname $0/Brewfile.all)
+brew bundle install --verbose --no-upgrade --file $(dirname $0)/Brewfile.all
 
-if [ $target eq 'personal' ]; then
-    brew bundle install --no-upgrade --file $(dirname $0/Brewfile.personal)
-elif [ $target eq 'work' ]; then
-    brew bundle install --no-upgrade --file $(dirname $0/Brewfile.work)
+if [ "x$target" = 'xpersonal' ]; then
+    brew bundle install --verbose --no-upgrade --file $(dirname $0)/Brewfile.personal
+elif [ "x$target" = 'xwork' ]; then
+    brew bundle install --verbose --no-upgrade --file $(dirname $0)/Brewfile.work
 fi
 
 # For "git-lfs"
